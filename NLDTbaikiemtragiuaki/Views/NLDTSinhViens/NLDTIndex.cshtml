@@ -1,0 +1,69 @@
+﻿@model IEnumerable<NLDTbaikiemtragiuaki.Models.NLDTSinhVien>
+
+@{
+    ViewBag.Title = "NLDTIndex";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "NLDTCreate")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NLDTHoSV)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NLDTTenSV)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NLDTNgaySInh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NLDTPhai)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NLDTPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NLDTEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NLDTKhoa.NLDTTenKH)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NLDTHoSV)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NLDTTenSV)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NLDTNgaySInh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NLDTPhai)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NLDTPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NLDTEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NLDTKhoa.NLDTTenKH)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "NLDTEdit", new { id=item.NLDTMaSV }) |
+            @Html.ActionLink("Details", "NLDTDetails", new { id=item.NLDTMaSV }) |
+            @Html.ActionLink("Delete", "NLDTDelete", new { id=item.NLDTMaSV })
+        </td>
+    </tr>
+}
+
+</table>

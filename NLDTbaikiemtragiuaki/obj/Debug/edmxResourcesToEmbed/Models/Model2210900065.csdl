@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NLDTK22CNT3lession07Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="NLDTKhoa">
+    <Key>
+      <PropertyRef Name="NLDTMaKH" />
+    </Key>
+    <Property Name="NLDTMaKH" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="NLDTTenKH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NLDTTrangThai" Type="Boolean" />
+    <NavigationProperty Name="NLDTSinhVien" Relationship="Self.FK_NLDTSinhVien_NLDTKhoa" FromRole="NLDTKhoa" ToRole="NLDTSinhVien" />
+  </EntityType>
+  <EntityType Name="NLDTSinhVien">
+    <Key>
+      <PropertyRef Name="NLDTMaSV" />
+    </Key>
+    <Property Name="NLDTMaSV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NLDTHoSV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NLDTTenSV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NLDTNgaySInh" Type="DateTime" Precision="0" />
+    <Property Name="NLDTPhai" Type="Boolean" />
+    <Property Name="NLDTPhone" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="NLDTEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NLDTMaKH" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="NLDTKhoa" Relationship="Self.FK_NLDTSinhVien_NLDTKhoa" FromRole="NLDTSinhVien" ToRole="NLDTKhoa" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_NLDTSinhVien_NLDTKhoa">
+    <End Role="NLDTKhoa" Type="Self.NLDTKhoa" Multiplicity="0..1" />
+    <End Role="NLDTSinhVien" Type="Self.NLDTSinhVien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NLDTKhoa">
+        <PropertyRef Name="NLDTMaKH" />
+      </Principal>
+      <Dependent Role="NLDTSinhVien">
+        <PropertyRef Name="NLDTMaKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="NLDTK22CNT3lession07Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="NLDTKhoa" EntityType="Self.NLDTKhoa" />
+    <EntitySet Name="NLDTSinhVien" EntityType="Self.NLDTSinhVien" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <AssociationSet Name="FK_NLDTSinhVien_NLDTKhoa" Association="Self.FK_NLDTSinhVien_NLDTKhoa">
+      <End Role="NLDTKhoa" EntitySet="NLDTKhoa" />
+      <End Role="NLDTSinhVien" EntitySet="NLDTSinhVien" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

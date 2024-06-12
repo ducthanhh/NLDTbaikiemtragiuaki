@@ -1,0 +1,80 @@
+﻿@model NLDTbaikiemtragiuaki.Models.NLDTSinhVien
+
+@{
+    ViewBag.Title = "NLDTDelete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>NLDTSinhVien</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NLDTHoSV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NLDTHoSV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NLDTTenSV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NLDTTenSV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NLDTNgaySInh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NLDTNgaySInh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NLDTPhai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NLDTPhai)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NLDTPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NLDTPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NLDTEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NLDTEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NLDTKhoa.NLDTTenKH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NLDTKhoa.NLDTTenKH)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "NLDTIndex")
+        </div>
+    }
+</div>
